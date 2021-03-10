@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Button, ToastAndroid, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, ToastAndroid, View } from 'react-native';
 import { ScrollView, TextInput, TouchableHighlight, Text } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-class LoginScreen extends Component{
-  constructor(props) {
+
+
+
+class LoginScreen extends Component {
+    constructor(props) {
         super(props);
-
-
 
 
 
@@ -36,9 +37,9 @@ class LoginScreen extends Component{
 
 
                 } else if (response.status === 400) {
-                    throw 'Incorrect email or password';
+                    throw ' Sorry! You Have Entered An Incorrect Email Or Password';
                 } else {
-                    throw 'Something went wrong';
+                    throw 'Sorry! Something Went Wrong';
                 }
 
 
@@ -48,68 +49,45 @@ class LoginScreen extends Component{
 
 
         .then(async(responseJson) => {
-                console.log("Signed in!", responseJson);
+                console.log("You've Signed In!", responseJson);
                 await AsyncStorage.setItem('@session_token', responseJson.token);
                 await AsyncStorage.setItem('@user_id', JSON.stringify(responseJson.id));
                 await AsyncStorage.setItem('@user_info', JSON.stringify(responseJson));
-                //convert back to integer when pulling id out
+                //convert back to integer when pulling the id out
                 this.props.navigation.navigate("Home");
-                ToastAndroid.show("Logged in successfully!", ToastAndroid.SHORT, ToastAndroid.CENTER);
+                ToastAndroid.show("You Have Logged In Successfully!", ToastAndroid.SHORT, ToastAndroid.CENTER);
 
 
 
             })
             .catch((error) => {
                 console.log(error);
-                ToastAndroid.show("error", ToastAndroid.SHORT);
+                ToastAndroid.show("Sorry! There Seems To Be An Error", ToastAndroid.SHORT);
             })
     }
+
+    //This is where the actual Login Form will be.
     render() {
         return (
-
-        
-
-
-
            <View>
       <TextInput
-      placeholder="Please enter your email"
+      placeholder="Enter Your Email..."
       onChangeText={(email) => this.setState ({email})}
       value={this.state.email}
       style={{padding:5, borderWidth:1, margin:10}}
       />
       <TextInput
-      placeholder="Please enter your password"
+      placeholder="Enter Your Password..."
       onChangeText={(password) => this.setState ({password})}
       value={this.state.password}
       style={{padding:5, borderWidth:1, margin:10}}
       />
-
       <Button
       title="Login"
       onPress={() =>  this.login()}
       />
       </View>
-
-
-
-
-
-
-
-
-);
-
-
-
-
-
-
-
-
-
-
-
+        );
     }
 }
 
