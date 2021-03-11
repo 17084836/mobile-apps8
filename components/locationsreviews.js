@@ -149,6 +149,11 @@ const navigation = this.props.navigation;
                    <Text>The Quality Rating: {item.avg_quality_rating}</Text>
                    <Text>The Clenliness Rating: {item.avg_clenliness_rating}</Text>
                  </View>
+                 <Button style={{ padding: 20 }}
+                       title="Add Your Review"
+                       onPress={() => this.props.navigation.navigate("Add Review", { location_id: item.location_id })}
+                     />
+
 
                </View>
              )}
