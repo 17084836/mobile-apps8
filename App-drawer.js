@@ -18,6 +18,7 @@ import Update from './components/updateuser';
 
 import GetUserInfo from './components/getuserinformation';
 import LocationsReviews from './components/locationsreviews';
+import AddReview from './components/addreview';
 
 //import Home from './components/home_with_buttons';
 
@@ -40,6 +41,7 @@ class App extends Component {
 <Drawer.Screen name="Update" component={Update} />
 <Drawer.Screen name="User Details" component={GetUserInfo} />
 <Drawer.Screen name="Locations Reviews" component={LocationsReviews} />
+<Drawer.Screen name="Add Review" component={AddReview} />
 
     </Drawer.Navigator>
   </NavigationContainer>
