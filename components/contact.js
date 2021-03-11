@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'steelblue'
+    backgroundColor: '#751d6e'
   },
   text: {
     color: 'white',

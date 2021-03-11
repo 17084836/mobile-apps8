@@ -11,6 +11,7 @@ import Contact from './components/contact';
 import SignupScreen from './components/signup';
 import LoginScreen from './components/login';
 import Logout from './components/logout';
+import testuser from './components/testuser';
 
 import Map from './components/map';
 import Location from './components/location';
@@ -44,6 +45,7 @@ class App extends Component {
 <Drawer.Screen name="Locations Reviews" component={LocationsReviews} />
 <Drawer.Screen name="Add Review" component={AddReview} />
 <Drawer.Screen name="Reviews" component={Reviews} />
+<Drawer.Screen name="testuser" component={testuser} />
 
     </Drawer.Navigator>
   </NavigationContainer>

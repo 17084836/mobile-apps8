@@ -62,6 +62,7 @@ class AddReview extends Component{
       }
       render(){
       //Creating our actual form where users could enter review details.
+      const navigation = this.props.navigation;
 
         return(
             <View >
@@ -106,6 +107,11 @@ class AddReview extends Component{
               title="Add Your Review!"
               onPress={() =>  this.AddReview()}
               />
+
+              <Button
+                 title="Go Back"
+                 onPress={() => navigation.goBack()}
+               />
 
             </View>
 

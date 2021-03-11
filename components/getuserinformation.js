@@ -128,14 +128,6 @@ const navigation = this.props.navigation;
          <Text>User's Details:</Text>
           <Text style={{ padding: 8 }}>NAME: {this.state.userData.first_name} {this.state.userData.last_name}</Text>
            <Text style={{ padding: 8 }}>EMAIL: {this.state.userData.email}</Text>
-
-
-
-
-          
-
-
-
            <Button
             title="Go Back"
             onPress={() => navigation.goBack()}

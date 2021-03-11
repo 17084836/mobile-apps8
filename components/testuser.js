@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, Image, Alert, Button, TextInput, ToastAndroid, ActivityIndicator, ScrollView, StyleSheet, YellowBox, FlatList, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-class LocationsReviews extends Component  {
+class testuser extends Component  {
   constructor(props) {
     super(props);
 
@@ -18,9 +18,9 @@ class LocationsReviews extends Component  {
 
 
 componentDidMount(){
-  //this.checkLoggedIn();
-  this.getInfo();
-//  this.getData();
+  this.checkLoggedIn();
+//  this.getInfo();
+  this.getData();
 }
 checkLoggedIn = async () => {
   const value = await AsyncStorage.getItem('@session_token');
@@ -57,7 +57,7 @@ getData = async () => {
       })
       .then((responseJson) => {
         // console.log(responseJson);
-        console.log('The Information Is Uploaded To The Screen.');
+        console.log('Data loaded');
         this.setState({
           userData: responseJson,
         })
@@ -87,7 +87,7 @@ getData = async () => {
       .then((response) => {
         if (response.status === 200) {
 
-          console.log("Reviews Are Displayed!");
+          console.log("worked");
           return response.json();
         }
         else if (response.status === 401) {
@@ -116,7 +116,7 @@ getData = async () => {
    render() {
 
 const navigation = this.props.navigation;
-
+   const data = this.props.route.params.data;
      return (
        <View
          style={{
@@ -125,57 +125,24 @@ const navigation = this.props.navigation;
            justifyContent: 'center',
            alignItems: 'center',
          }}>
-         <Text>Here Are The Location Reviews! Feel Free To Create A New Review For Any Of The Coffee Shops!</Text>
+         <Text>User's Details:</Text>
 
 
+          <FlatList
+            data={data}
+            renderItem={({ item }) => (
+             //This is where we'll be able to view the reviews
+              <View style={{ padding: 20 }}>
+              <Text style={{ padding: 8 }}>NAME: {item.first_name} {item.last_name}</Text>
+               <Text style={{ padding: 8 }}>EMAIL: {item.email}</Text>
+              </View>
 
-           <Button
-             onPress={() => this.getInfo()}
-             title="Location Reviews"
-             accessibilityLabel="Confirm Edit"
-           />
+            )}
 
-           <FlatList
-             data={this.state.locationData}
-             renderItem={({ item }) => (
-               <View>
-                 <View style={{ padding: 40 }}>
-                   <Text>{item.location_town}</Text>
-                    <Text>{item.location_id}</Text>
-                   <Text>{item.location_name}</Text>
-                   <Text>The Overall Rating: {item.avg_overall_rating}</Text>
-                   <Text>The Overall Rating: {item.avg_overall_rating}</Text>
-                   <Text>The Price Rating: {item.avg_price_rating}</Text>
-                   <Text>The Quality Rating: {item.avg_quality_rating}</Text>
-                   <Text>The Clenliness Rating: {item.avg_clenliness_rating}</Text>
-                 </View>
-                 <Button style={{ padding: 20 }}
-                       title="Add Your Review"
-                       onPress={() => this.props.navigation.navigate("Add Review", { location_id: item.location_id })}
-                     />
-
-                     <Button style={{ padding: 20 }}
-                           title="Reviews"
-                           onPress={() => this.props.navigation.navigate("Reviews", { location_id: item.location_id })}
-                         />
+            keyExtractor={(item, index) => item.user_id.toString()}
 
 
-
-
-               </View>
-             )}
-             keyExtractor={(item, index) => item.location_id.toString()}
-           />
-
-
-           <Button
-            title="Go Back"
-            onPress={() => navigation.goBack()}
-            />
-
-
-
-
+          />
 
 
        </View>
@@ -183,4 +150,4 @@ const navigation = this.props.navigation;
    }
  }
 
- export default LocationsReviews;
+ export default testuser;
