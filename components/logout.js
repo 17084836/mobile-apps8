@@ -31,6 +31,8 @@ import React, { Component } from 'react';
       if(response.status === 200){
         ToastAndroid.show("The logout has been Successful!",ToastAndroid.SHORT,
         ToastAndroid.CENTER);
+        AsyncStorage.removeItem('@session_token');
+        AsyncStorage.removeItem('@user_id');
         this.props.navigation.navigate("Login");
       }
        else if (response.status ===401){
@@ -55,6 +57,8 @@ import React, { Component } from 'react';
 }
 
     render() {
+
+      const navigation = this.props.navigation;
       return (
 
 
@@ -72,7 +76,13 @@ import React, { Component } from 'react';
           <Button
            title="logout"
            onPress={() => this.logout()}
+        //   onPress={() => this.removeItem()}
            />
+
+           <Button
+            title="Go Back"
+            onPress={() => navigation.goBack()}
+            />
 
         </View>
       );

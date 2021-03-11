@@ -62,10 +62,16 @@ class Map extends Component{
   }
 
   render(){
+    const navigation = this.props.navigation;
     return (
       <View>
        <Button title="Get my coords" onPress={() => {this.findCoordinates()}} />
        <Text>Location: {this.state.location}</Text>
+
+       <Button
+        title="Go Back"
+        onPress={() => navigation.goBack()}
+        />
        </View>
     );
   }

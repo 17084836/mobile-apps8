@@ -52,7 +52,7 @@ class Update extends Component {
        })
         .then(response => {
           if (response.status !=200) {
-            Alert.alert('Error! Edit failed.');
+            Alert.alert('Sorry! The Update Has Failed. Are You Logged In?');
           } else {
             this.props.navigation.navigate('Home');
           }
@@ -66,6 +66,8 @@ class Update extends Component {
 
    //Displaying The Components Here
    render() {
+
+     const navigation = this.props.navigation;
 
 
      return (
@@ -121,9 +123,14 @@ class Update extends Component {
                icon={<Icon name="content-save-edit" size={30} color="white" />}
               onPress={() => this.editAccount()}
               buttonStyle={styles.button}
-              title=" Confirm Changes"
+              title=" Update"
               accessibilityLabel="Confirm Edit"
             />
+
+            <Button
+             title="Go Back"
+             onPress={() => navigation.goBack()}
+             />
 
 
           </View>

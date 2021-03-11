@@ -54,6 +54,7 @@ class SignupScreen extends Component{
 
 
   render(){
+    const navigation = this.props.navigation;
     return (
       <ScrollView>
       <Text>Welcome! In order to make an account with us, we require you to enter the follwoing information.</Text>
@@ -104,7 +105,10 @@ class SignupScreen extends Component{
            <Text style={{fontSize:20, fontWeight:'bold', color:'steelblue'}}>Create Account</Text>
           </TouchableOpacity>
 
-
+          <Button
+           title="Go Back"
+           onPress={() => navigation.goBack()}
+           />
 
 
 

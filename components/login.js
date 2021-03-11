@@ -68,6 +68,8 @@ class LoginScreen extends Component {
 
     //This is where the actual Login Form will be.
     render() {
+
+      const navigation = this.props.navigation;
         return (
            <View>
       <TextInput
@@ -86,6 +88,14 @@ class LoginScreen extends Component {
       title="Login"
       onPress={() =>  this.login()}
       />
+
+      <Button
+       title="Go Back"
+       onPress={() => navigation.goBack()}
+       />
+
+
+
       </View>
         );
     }

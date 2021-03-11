@@ -16,6 +16,9 @@ import Map from './components/map';
 import Location from './components/location';
 import Update from './components/updateuser';
 
+import GetUserInfo from './components/getuserinformation';
+import LocationsReviews from './components/locationsreviews';
+
 //import Home from './components/home_with_buttons';
 
 const Drawer = createDrawerNavigator();
@@ -35,6 +38,8 @@ class App extends Component {
 
 <Drawer.Screen name="Map" component={Map} />
 <Drawer.Screen name="Update" component={Update} />
+<Drawer.Screen name="User Details" component={GetUserInfo} />
+<Drawer.Screen name="Locations Reviews" component={LocationsReviews} />
 
     </Drawer.Navigator>
   </NavigationContainer>
