@@ -9,17 +9,8 @@ class Home extends Component{
     const navigation = this.props.navigation;
     return (
       <View style={styles.container}>
-
       <Text style={styles.title}>Home</Text>
-
-
        <Text style={styles.text}>Welcome to the Coffida App Assignment! Feel free to make an account with us so you get all the benefits of the app. Such as adding your own reviews, updating your review and much more!</Text>
-
-
-
-
-
-
 
       </View>
     );
@@ -47,10 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
 
-
-
 });
-
 
 
 export default Home;

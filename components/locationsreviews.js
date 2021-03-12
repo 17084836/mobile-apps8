@@ -200,8 +200,6 @@ const navigation = this.props.navigation;
          <Text>Here Are The Location Reviews! Feel Free To Create A New Review For Any Of The Coffee Shops!</Text>
 
 
-
-
            <Button
              onPress={() => this.GettingTheInfo()}
              title="Location Reviews"

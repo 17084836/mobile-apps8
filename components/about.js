@@ -42,12 +42,3 @@ const styles = StyleSheet.create({
 });
 
 export default About;
-
-/*
-
-<Button
- title="Go Back"
- onPress={() => navigation.goBack()}
- />
-
- */
