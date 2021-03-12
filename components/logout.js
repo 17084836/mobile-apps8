@@ -5,10 +5,10 @@ import React, { Component } from 'react';
 
  class Logout extends Component  {
 
-
-
-
-
+//Here There's a piece of code that will check if the person using the app is actually logged in or not
+//If they're logged in then it will logout as normal
+//If not, then the user will be sent to the sign in page
+//Also getting a message from the terminal letting them know that they are currently not logged in (line39)
 
  CheckIfLoggedIn = async () => {
    const value = await AsyncStorage.getItem('@session_token');
@@ -123,8 +123,6 @@ import React, { Component } from 'react';
 
     }
   });
-
-
 
 
   export default Logout;
