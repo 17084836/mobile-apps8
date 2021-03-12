@@ -93,6 +93,7 @@ import React, { Component } from 'react';
 
   }
 
+//Here Im using a style sheet in order to add some colours to the page and get rid of the bland text that's on the page.
 
   const styles = StyleSheet.create({
     container:{
