@@ -20,7 +20,8 @@ class SignupScreen extends Component{
 
   SigningUp = () => {
     //Validation Here
-
+    //Here we're connecting to our server
+    //we're connecting using a POST method
 
     return fetch("http://10.0.2.2:3333/api/1.0.0/user", {
       method: 'post',
@@ -33,17 +34,20 @@ class SignupScreen extends Component{
       if(response.status === 201){
           console.log("User Created with ID: ", response);
         return response.json()
+        //Here, we're telling the terminal there is a failed validation
       }else if(response.status === 400){
         throw 'Failed validation';
       }else{
         throw 'Something went wrong';
       }
     })
+    //Here, put up a message to the terminal that the user has been created and pasting in their ID number
     .then(async (responseJson) => {
       console.log("User Created with ID: ", responseJson);
       this.props.navigation.navigate("Login");
       ToastAndroid.show(error, ToastAndroid.SHORT);
     })
+    //Here, we're sending the user a message on the actual app letting them know their welcome to now log in using their new account
     .catch((error) => {
       console.log(error);
       ToastAndroid.show("Welcome, Please Log In ",ToastAndroid.SHORT);
@@ -51,12 +55,13 @@ class SignupScreen extends Component{
   }
 
 
-
+//Here is the piece of code that will actually be a form and is viewable by the user
+//There are a number of text inputs for the user to enter their details for them to sign up
+//The style code refers back to the style sheet at the bottom of this page where it will refer to the style rules it will follow
+//We are storing the data the user is giving us to save for them to log in  
 
   render(){
-
     const navigation = this.props.navigation;
-
     return (
       <View style={styles.container}>
       <ScrollView>
@@ -71,7 +76,6 @@ class SignupScreen extends Component{
         />
 
 
-
         <Text style={styles.text2}>Last Name:</Text>
         <TextInput
           placeholder="Please Enter Your Last Name.."
@@ -81,7 +85,6 @@ class SignupScreen extends Component{
         />
 
 
-
         <Text style={styles.text2}>Email:</Text>
         <TextInput
           placeholder="Please Enter Your Email.."
@@ -89,7 +92,6 @@ class SignupScreen extends Component{
           value={this.state.email}
           style={styles.text}
         />
-
 
 
         <Text style={styles.text2}>Password:</Text>
@@ -112,12 +114,6 @@ class SignupScreen extends Component{
            title="Go Back"
            onPress={() => navigation.goBack()}
            />
-
-
-
-
-
-
 
 
       </ScrollView>
@@ -156,12 +152,6 @@ const styles = StyleSheet.create({
 
   }
 });
-
-
-
-
-
-
 
 
 export default SignupScreen;
