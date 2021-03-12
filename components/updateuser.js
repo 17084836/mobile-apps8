@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {View, Text, TextInput, Alert, StyleSheet, Button} from 'react-native';
+import {View, Text, TextInput, Alert, StyleSheet, Button, ToastAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class Update extends Component {
@@ -55,6 +55,7 @@ class Update extends Component {
             Alert.alert('Sorry! The Update Has Failed. Are You Logged In?');
           } else {
             this.props.navigation.navigate('Home');
+            ToastAndroid.show("You Have Successfully Upated The Account!", ToastAndroid.SHORT, ToastAndroid.CENTER);
           }
         })
        .catch(e => {
