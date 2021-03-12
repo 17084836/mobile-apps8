@@ -8,7 +8,8 @@ class Contact extends Component{
 
     return (
       <View style={styles.container}>
-       <Text style={styles.text}>Contact</Text>
+       <Text style={styles.title}>Contact:</Text>
+       <Text style={styles.text}>Please do not hesitate to contact us if there are any problems/enquiries. Our email is 17084836@stu.mmu.ac.uk</Text>
        <Button
           title="Go Back"
           onPress={() => navigation.goBack()}
@@ -25,10 +26,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#751d6e'
   },
+  title: {
+    color: 'white',
+    backgroundColor:'#3369d6',
+    fontSize: 25,
+    padding: 7
+  },
   text: {
     color: 'white',
-    fontSize: 25
-  }
+    fontSize: 18
+  },
 });
 
 export default Contact;

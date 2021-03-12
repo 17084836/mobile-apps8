@@ -9,7 +9,12 @@ class Home extends Component{
     const navigation = this.props.navigation;
     return (
       <View style={styles.container}>
-       <Text style={styles.text}>Home</Text>
+
+      <Text style={styles.title}>Home</Text>
+
+
+       <Text style={styles.text}>Welcome to the Coffida App Assignment! Feel free to make an account with us so you get all the benefits of the app. Such as adding your own reviews, updating your review and much more!</Text>
+
 
 
 
@@ -28,10 +33,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#751d6e'
   },
+  title: {
+    color: 'white',
+    backgroundColor:'#3369d6',
+    fontSize: 25,
+    padding: 7
+  },
+
   text: {
     color: 'white',
-    fontSize: 25
-  }
+    fontSize: 18
+  },
+
+
+
 });
 
 

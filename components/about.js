@@ -8,7 +8,8 @@ class About extends Component {
 
     return (
       <View style={styles.container}>
-       <Text style={styles.text}>About</Text>
+       <Text style={styles.title}>About</Text>
+       <Text style={styles.text}>This application was built and designed for my mobile applications development Unit. It's an app which allows users to view different coffee shops, leave a review and many other functions.</Text>
        <Button
         title="Go Back"
         onPress={() => navigation.goBack()}
@@ -26,9 +27,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#751d6e'
   },
+  title: {
+    color: 'white',
+    backgroundColor:'#3369d6',
+    fontSize: 25,
+    padding: 7
+  },
+
   text: {
     color: 'white',
-    fontSize: 25
+    fontSize: 18
   }
 });
 
