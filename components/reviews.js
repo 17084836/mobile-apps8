@@ -144,31 +144,20 @@ UnlikeTheReview = async (loc_id,rev_id) => {
                 <Button style={{ padding: 20 }}
                       title="Like"
                       onPress={() => this.LikeTheReview(loc_id,item.review_id)}
-                    />
-                    <Button style={{ padding: 20 }}
-                          title="Unlike"
-                          onPress={() => this.UnlikeTheReview(loc_id,item.review_id)}
-                        />
-                        <Button
-                         title="Go Back"
-                         onPress={() => navigation.goBack()}
-                         />
-              </View>
-
-
-
-
+                />
+                <Button style={{ padding: 20 }}
+                      title="Unlike"
+                      onPress={() => this.UnlikeTheReview(loc_id,item.review_id)}
+               />
+                <Button
+                     title="Go Back"
+                     onPress={() => navigation.goBack()}
+               />
+               </View>
 
             )}
-
             keyExtractor={(item, index) => item.review_id.toString()}
-
-
           />
-
-          
-
-
 
         </View>
 
@@ -208,8 +197,6 @@ const styles = StyleSheet.create({
 
   }
 });
-
-
 
 
 export default Reviews;
