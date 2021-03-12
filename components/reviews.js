@@ -14,10 +14,10 @@ class Reviews extends Component {
 
   }
   componentDidMount() {
-    this.getInfo();
+    this.GettingTheInfo();
   }
 
-  getInfo = async () => {
+  GettingTheInfo = async () => {
     const value = await AsyncStorage.getItem("@session_token");
     const loc_id = this.props.route.params.location_id;
 
@@ -54,8 +54,78 @@ class Reviews extends Component {
 
 
   }
+
+  LikeTheReview = async (loc_id,rev_id) => {
+    const value = await AsyncStorage.getItem("@session_token");
+    const id = await AsyncStorage.getItem("@user_id");
+
+
+    return fetch("http://10.0.2.2:3333/api/1.0.0/location/"+loc_id+"/review/"+rev_id+"/like", {
+      method: 'post',
+      headers: {
+        'X-Authorization': value
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+
+
+        }
+        else if (response.status === 401) {
+          throw 'Im Afraid You Are Unauthorised To View This Information';
+        }
+        else {
+          throw 'Sorry, There Seems To Be A Problem';
+        }
+      })
+      .then(async () => {
+        console.log("The Review Has Been Liked!");
+        this.GettingTheInfo();
+
+      })
+      .catch((error) => {
+        console.log(error);
+        ToastAndroid.show(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
+      })
+
+}
+UnlikeTheReview = async (loc_id,rev_id) => {
+  const value = await AsyncStorage.getItem("@session_token");
+  const id = await AsyncStorage.getItem("@user_id");
+
+
+  return fetch("http://10.0.2.2:3333/api/1.0.0/location/"+loc_id+"/review/"+rev_id+"/like", {
+    method: 'delete',
+    headers: {
+      'X-Authorization': value
+    },
+  })
+    .then((response) => {
+      if (response.status === 200) {
+
+
+      }
+      else if (response.status === 401) {
+        throw 'Im Afraid You Are Unauthorised To View This Information';
+      }
+      else {
+        throw 'Sorry, There Seems To Be A Problem';
+      }
+    })
+    .then(async () => {
+      console.log("The Review Has Been Unliked.");
+      this.GettingTheInfo();
+
+    })
+    .catch((error) => {
+      console.log(error);
+      ToastAndroid.show(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
+    })
+
+}
   render() {
     const navigation = this.props.navigation;
+    const loc_id = this.props.route.params.location_id;
     return (
       <View style={styles.container}>
       <View>
@@ -71,7 +141,17 @@ class Reviews extends Component {
                 <Text style={styles.text}>Quality:  {item.quality_rating}</Text>
                 <Text style={styles.text}>clenliness:  {item.clenliness_rating}</Text>
                 <Text style={styles.text}>Likes:  {item.likes}</Text>
+                <Button style={{ padding: 20 }}
+                      title="Like"
+                      onPress={() => this.LikeTheReview(loc_id,item.review_id)}
+                    />
+                    <Button style={{ padding: 20 }}
+                          title="Unlike"
+                          onPress={() => this.UnlikeTheReview(loc_id,item.review_id)}
+                        />
               </View>
+
+
 
             )}
 
@@ -79,6 +159,7 @@ class Reviews extends Component {
 
 
           />
+
 
 
         </View>
@@ -89,6 +170,7 @@ class Reviews extends Component {
   }
 }
 
+//Here Im using a style sheet in order to add some colours to the page and get rid of the bland text that's on the page.
 
 const styles = StyleSheet.create({
   container:{

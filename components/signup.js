@@ -46,7 +46,7 @@ class SignupScreen extends Component{
     })
     .catch((error) => {
       console.log(error);
-      ToastAndroid.show("error",ToastAndroid.SHORT);
+      ToastAndroid.show("Welcome, Please Log In ",ToastAndroid.SHORT);
     })
   }
 
@@ -126,6 +126,7 @@ class SignupScreen extends Component{
   }
 }
 
+//Here Im using a style sheet in order to add some colours to the page and get rid of the bland text that's on the page.
 
 const styles = StyleSheet.create({
   container:{

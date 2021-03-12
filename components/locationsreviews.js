@@ -19,7 +19,7 @@ class LocationsReviews extends Component  {
 
 componentDidMount(){
   //this.checkLoggedIn();
-  this.getInfo();
+  this.GettingTheInfo();
 //  this.getData();
 }
 checkLoggedIn = async () => {
@@ -73,7 +73,7 @@ getData = async () => {
   }
 
 
-  getInfo = async () => {
+  GettingTheInfo = async () => {
     const value = await AsyncStorage.getItem("@session_token");
     const id = await AsyncStorage.getItem("@user_id");
     // console.log(id);
@@ -113,6 +113,79 @@ getData = async () => {
 
   }
 
+  FavouriteLocation = async (loc_id) => {
+    const value = await AsyncStorage.getItem("@session_token");
+    const id = await AsyncStorage.getItem("@user_id");
+
+
+    return fetch("http://10.0.2.2:3333/api/1.0.0/location/"+loc_id+"/favourite", {
+      method: 'post',
+      headers: {
+        'X-Authorization': value
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+
+
+        }
+        else if (response.status === 401) {
+          throw 'Im afraid You Are Unauthorised To View This Information';
+        }
+        else {
+          throw 'There Seems To Be A Problem';
+        }
+      })
+      .then(async () => {
+        console.log("The Location Has Been Favourited");
+
+
+      })
+      .catch((error) => {
+        console.log(error);
+        ToastAndroid.show(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
+      })
+
+}
+
+RemoveFromFavourites = async (loc_id) => {
+  const value = await AsyncStorage.getItem("@session_token");
+  const id = await AsyncStorage.getItem("@user_id");
+  // console.log(id);
+
+  return fetch("http://10.0.2.2:3333/api/1.0.0/location/"+loc_id+"/favourite", {
+    method: 'delete',
+    headers: {
+      'X-Authorization': value
+    },
+  })
+    .then((response) => {
+      if (response.status === 200) {
+
+
+
+      }
+      else if (response.status === 401) {
+        throw 'Im afraid You Are Unauthorised To View This Information';
+      }
+      else {
+        throw 'There Seems To Be A Problem';
+      }
+    })
+    .then(async () => {
+      console.log("The Location Has Been Removed From Favourites");
+
+
+    })
+    .catch((error) => {
+      console.log(error);
+      ToastAndroid.show(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
+    })
+
+}
+
+
+
    render() {
 
 const navigation = this.props.navigation;
@@ -132,7 +205,7 @@ const navigation = this.props.navigation;
 
 
            <Button
-             onPress={() => this.getInfo()}
+             onPress={() => this.GettingTheInfo()}
              title="Location Reviews"
              accessibilityLabel="Confirm Edit"
            />
@@ -160,6 +233,15 @@ const navigation = this.props.navigation;
                            title="Reviews"
                            onPress={() => this.props.navigation.navigate("Reviews", { location_id: item.location_id })}
                          />
+                         <Button style={{ padding: 20 }}
+                               title="Add To Favourite"
+                               onPress={() => this.FavouriteLocation(item.location_id)}
+                             />
+                             <Button style={{ padding: 20 }}
+                                   title="Remove From Favourite"
+                                   onPress={() => this.RemoveFromFavourites(item.location_id)}
+                                 />
+
 
 
 
@@ -184,6 +266,8 @@ const navigation = this.props.navigation;
      );
    }
  }
+
+//Here Im using a style sheet in order to add some colours to the page and get rid of the bland text that's on the page.
 
  const styles = StyleSheet.create({
    container:{
@@ -213,13 +297,6 @@ const navigation = this.props.navigation;
 
    }
  });
-
-
-
-
-
-
-
 
 
 
