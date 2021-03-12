@@ -109,28 +109,19 @@ class Update extends Component {
              secureTextEntry
           />
 
-
-
-
-
-
-            <Button
-               icon={<Icon name="content-save-edit" size={30} color="white" />}
-              onPress={() => this.UpdatingAccount()}
-              buttonStyle={styles.button}
-              title=" Update"
-              accessibilityLabel="Confirm Edit"
-            />
+          <Button
+             icon={<Icon name="content-save-edit" size={30} color="white" />}
+             onPress={() => this.UpdatingAccount()}
+             buttonStyle={styles.button}
+             title=" Update"
+             accessibilityLabel="Confirm Edit"
+          />
 
             <Button
              title="Go Back"
              onPress={() => navigation.goBack()}
              />
-
-
           </View>
-
-
 
       );
     }
@@ -165,11 +156,7 @@ class Update extends Component {
       flexDirection:'column',
       marginTop:55,
       marginBottom: 15,
-  //    justifyContent: 'center',
-
-
-
-
+  
 
     },
   })
