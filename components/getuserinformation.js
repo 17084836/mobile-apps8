@@ -18,22 +18,22 @@ class GetUserInfo extends Component  {
 
 
 componentDidMount(){
-  this.checkLoggedIn();
-//  this.getInfo();
-  this.getData();
+  this.CheckIfLoggedIn();
+//  this.GetTheInfo();
+  this.PullingTheData();
 }
-checkLoggedIn = async () => {
+CheckIfLoggedIn = async () => {
   const value = await AsyncStorage.getItem('@session_token');
   if (value == null) {
       ToastAndroid.show("Need To be Logged In First", ToastAndroid.SHORT, ToastAndroid.CENTER);
   }
   else {
-    this.getData();
+    this.PullingTheData();
   }
 }
 
 
-getData = async () => {
+PullingTheData = async () => {
     const value = await AsyncStorage.getItem("@session_token");
     const id = await AsyncStorage.getItem("@user_id");
     //console.log(id);
@@ -73,7 +73,7 @@ getData = async () => {
   }
 
 
-  getInfo = async () => {
+  GetTheInfo = async () => {
     const value = await AsyncStorage.getItem("@session_token");
     const id = await AsyncStorage.getItem("@user_id");
     // console.log(id);
@@ -136,7 +136,7 @@ const navigation = this.props.navigation;
 
             <Button
              title="View Details"
-             onPress={() => this.getData()}
+             onPress={() => this.PullingTheData()}
              />
 
 

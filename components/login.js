@@ -21,7 +21,7 @@ class LoginScreen extends Component {
 
 
     }
-    login = async() => {
+    LoggingIn = async() => {
         //Validation Here
         return fetch("http://10.0.2.2:3333/api/1.0.0/user/login", {
                 method: 'post',
@@ -88,7 +88,7 @@ class LoginScreen extends Component {
       />
       <Button
       title="Login"
-      onPress={() =>  this.login()}
+      onPress={() =>  this.LoggingIn()}
       />
 
       <Button

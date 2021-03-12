@@ -17,7 +17,7 @@ class AddReview extends Component{
     }
 
   }
-  AddReview = async () => {
+  AddingAReview = async () => {
     let to_send = {};
     const loc_id = this.props.route.params.location_id;
     const value = await AsyncStorage.getItem('@session_token');
@@ -111,7 +111,7 @@ class AddReview extends Component{
 
                 <Button
               title="Add Your Review!"
-              onPress={() =>  this.AddReview()}
+              onPress={() =>  this.AddingAReview()}
               />
 
               <Button

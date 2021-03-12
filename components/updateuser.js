@@ -35,7 +35,7 @@ class Update extends Component {
      });
    }
 
-   editAccount= async () => {
+   UpdatingAccount= async () => {
 
      const id = await AsyncStorage.getItem('@user_id');
      console.log(id);
@@ -116,7 +116,7 @@ class Update extends Component {
 
             <Button
                icon={<Icon name="content-save-edit" size={30} color="white" />}
-              onPress={() => this.editAccount()}
+              onPress={() => this.UpdatingAccount()}
               buttonStyle={styles.button}
               title=" Update"
               accessibilityLabel="Confirm Edit"

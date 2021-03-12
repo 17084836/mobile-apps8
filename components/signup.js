@@ -18,7 +18,7 @@ class SignupScreen extends Component{
   }
 
 
-  signup = () => {
+  SigningUp = () => {
     //Validation Here
 
 
@@ -103,7 +103,7 @@ class SignupScreen extends Component{
 
         <TouchableOpacity
           style={{ backgroundColor:'lightblue', padding:10, alignItems:'center', margin:8}}
-          onPress={() => this.signup()}
+          onPress={() => this.SigningUp()}
           >
            <Text style={{fontSize:20, fontWeight:'bold', color:'steelblue'}}>Create Account</Text>
           </TouchableOpacity>

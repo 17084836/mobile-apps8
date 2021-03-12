@@ -149,7 +149,13 @@ UnlikeTheReview = async (loc_id,rev_id) => {
                           title="Unlike"
                           onPress={() => this.UnlikeTheReview(loc_id,item.review_id)}
                         />
+                        <Button
+                         title="Go Back"
+                         onPress={() => navigation.goBack()}
+                         />
               </View>
+
+
 
 
 
@@ -159,6 +165,8 @@ UnlikeTheReview = async (loc_id,rev_id) => {
 
 
           />
+
+          
 
 
 

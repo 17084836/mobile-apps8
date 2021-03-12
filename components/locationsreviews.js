@@ -18,22 +18,22 @@ class LocationsReviews extends Component  {
 
 
 componentDidMount(){
-  //this.checkLoggedIn();
+  //this.CheckIfLoggedIn();
   this.GettingTheInfo();
-//  this.getData();
+//  this.PullingTheData();
 }
-checkLoggedIn = async () => {
+CheckIfLoggedIn = async () => {
   const value = await AsyncStorage.getItem('@session_token');
   if (value == null) {
       ToastAndroid.show("Need To be Logged In First", ToastAndroid.SHORT, ToastAndroid.CENTER);
   }
   else {
-    this.getData();
+    this.PullingTheData();
   }
 }
 
 
-getData = async () => {
+PullingTheData = async () => {
     const value = await AsyncStorage.getItem("@session_token");
     const id = await AsyncStorage.getItem("@user_id");
     //console.log(id);

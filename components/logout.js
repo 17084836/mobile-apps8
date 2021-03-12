@@ -10,14 +10,14 @@ import React, { Component } from 'react';
 
 
 
- checkLoggedIn = async () => {
+ CheckIfLoggedIn = async () => {
    const value = await AsyncStorage.getItem('@session_token');
    if (value == null) {
        this.props.navigation.navigate('Login');
    }
  }
 
- logout = async () => {
+ LoggingOut = async () => {
   //Validation Here
   let token =  await AsyncStorage.getItem('@session_token');
   await AsyncStorage.removeItem('@session_token');
@@ -75,7 +75,7 @@ import React, { Component } from 'react';
           <Text style={styles.title}>Log out Page</Text>
           <Button
            title="Log Out"
-           onPress={() => this.logout()}
+           onPress={() => this.LoggingOut()}
         //   onPress={() => this.removeItem()}
            />
 
