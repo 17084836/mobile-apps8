@@ -65,40 +65,46 @@ class AddReview extends Component{
       const navigation = this.props.navigation;
 
         return(
+          <View style={styles.container}>
             <View >
               <ScrollView>
                 <View >
                  <TextInput
 
-                 placeholder="The Overall Rating"
+                 placeholder="Please Enter The Overall Rating..."
                  onChangeText={(overall_rating) => this.setState ({overall_rating})}
                  value={this.state.overall_rating.toString()}
+                 style={styles.text}
 
              />
              <TextInput
 
-                 placeholder="The Price Rating"
+                 placeholder="Please Enter The Price Rating..."
                  onChangeText={(price_rating) => this.setState ({price_rating})}
                  value={this.state.price_rating.toString()}
+                 style={styles.text}
              />
              <TextInput
 
-                 placeholder="The Quality Rating"
+                 placeholder="Please Enter The Quality Rating..."
                  onChangeText={(quality_rating) => this.setState ({quality_rating})}
                  value={this.state.quality_rating.toString()}
+                 style={styles.text}
 
              />
              <TextInput
 
-                 placeholder="The Clenliness Rating"
+                 placeholder="Please Enter The Clenliness Rating..."
                  onChangeText={(clenliness_rating) => this.setState ({clenliness_rating})}
                  value={this.state.clenliness_rating.toString()}
+                 style={styles.text}
 
               />
               <TextInput
-                 placeholder="The Review "
+                 placeholder="Please Enter The Review... "
                  onChangeText={(review_body) => this.setState ({review_body})}
                  value={this.state.review_body}
+                 style={styles.text}
 
               />
               <View>
@@ -118,10 +124,40 @@ class AddReview extends Component{
           </View>
         </ScrollView>
       </View>
+      </View>
       );
 
       }
     }
+
+    const styles = StyleSheet.create({
+      container:{
+        flex: 1,
+    //    alignItems: 'center',
+      //  justifyContent: 'center',
+        backgroundColor: '#751d6e'
+      },
+      title: {
+        color: 'black',
+        backgroundColor:'#3369d6',
+        fontSize: 20,
+        padding: 7
+      },
+
+      text: {
+        color: 'black',
+        fontSize: 18,
+        padding: 7,
+        borderWidth: 5,
+        margin: 5,
+        borderColor:'steelblue'
+      },
+      text2: {
+        fontSize:15,
+         color:'steelblue'
+
+      }
+    });
 
 
 export default AddReview;

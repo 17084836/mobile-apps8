@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ToastAndroid, View } from 'react-native';
+import { Button, ToastAndroid, View, StyleSheet } from 'react-native';
 import { ScrollView, TextInput, TouchableHighlight, Text } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -71,18 +71,19 @@ class LoginScreen extends Component {
 
       const navigation = this.props.navigation;
         return (
+          <View style={styles.container}>
            <View>
       <TextInput
       placeholder="Enter Your Email..."
       onChangeText={(email) => this.setState ({email})}
       value={this.state.email}
-      style={{padding:5, borderWidth:1, margin:10}}
+      style={styles.text}
       />
       <TextInput
       placeholder="Enter Your Password..."
       onChangeText={(password) => this.setState ({password})}
       value={this.state.password}
-      style={{padding:5, borderWidth:1, margin:10}}
+      style={styles.text}
       />
       <Button
       title="Login"
@@ -97,8 +98,40 @@ class LoginScreen extends Component {
 
 
       </View>
+      </View>
         );
     }
 }
+
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+//    alignItems: 'center',
+  //  justifyContent: 'center',
+    backgroundColor: '#751d6e'
+  },
+  title: {
+    color: 'black',
+    backgroundColor:'#3369d6',
+    fontSize: 20,
+    padding: 7
+  },
+
+  text: {
+    color: 'black',
+    fontSize: 18,
+    padding:10,
+    borderWidth:5,
+    margin:5,
+    borderColor:'steelblue'
+  },
+  text2: {
+    fontSize:15,
+     color:'steelblue'
+
+  }
+});
 
 export default LoginScreen;

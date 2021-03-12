@@ -61,7 +61,7 @@ import React, { Component } from 'react';
       const navigation = this.props.navigation;
       return (
 
-
+<View style={styles.container}>
 
 
 
@@ -72,9 +72,9 @@ import React, { Component } from 'react';
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Text>Logout Page</Text>
+          <Text style={styles.title}>Log out Page</Text>
           <Button
-           title="logout"
+           title="Log Out"
            onPress={() => this.logout()}
         //   onPress={() => this.removeItem()}
            />
@@ -85,25 +85,45 @@ import React, { Component } from 'react';
             />
 
         </View>
+
+        </View>
       );
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
+
+
+  const styles = StyleSheet.create({
+    container:{
+      flex: 1,
+  //    alignItems: 'center',
+    //  justifyContent: 'center',
+      backgroundColor: '#751d6e'
+    },
+    title: {
+      color: 'black',
+      backgroundColor:'#3369d6',
+      fontSize: 20,
+      padding: 7
+    },
+
+    text: {
+      color: 'black',
+      fontSize: 18,
+      padding:10,
+      borderWidth:5,
+      margin:5,
+      borderColor:'steelblue'
+    },
+    text2: {
+      fontSize:15,
+       color:'steelblue'
+
+    }
+  });
+
+
+
 
   export default Logout;

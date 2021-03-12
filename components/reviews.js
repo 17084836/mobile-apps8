@@ -57,6 +57,7 @@ class Reviews extends Component {
   render() {
     const navigation = this.props.navigation;
     return (
+      <View style={styles.container}>
       <View>
         <View>
           <FlatList
@@ -64,12 +65,12 @@ class Reviews extends Component {
             renderItem={({ item }) => (
              //This is where we'll be able to view the reviews
               <View style={{ padding: 20 }}>
-                <Text>{item.review_body}</Text>
-                <Text>Overall Rating:  {item.overall_rating}</Text>
-                <Text>Price Rating:  {item.price_rating}</Text>
-                <Text>Quality:  {item.quality_rating}</Text>
-                <Text>clenliness:  {item.clenliness_rating}</Text>
-                <Text>Likes:  {item.likes}</Text>
+                <Text style={styles.title}>Review: {item.review_body}</Text>
+                <Text style={styles.text}>Overall Rating:  {item.overall_rating}</Text>
+                <Text style={styles.text}>Price Rating:  {item.price_rating}</Text>
+                <Text style={styles.text}>Quality:  {item.quality_rating}</Text>
+                <Text style={styles.text}>clenliness:  {item.clenliness_rating}</Text>
+                <Text style={styles.text}>Likes:  {item.likes}</Text>
               </View>
 
             )}
@@ -82,13 +83,43 @@ class Reviews extends Component {
 
         </View>
 
-
-
-
-
+      </View>
       </View>
     );
   }
 }
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+//    alignItems: 'center',
+  //  justifyContent: 'center',
+    backgroundColor: '#751d6e'
+  },
+  title: {
+    color: 'black',
+    backgroundColor:'#3369d6',
+    fontSize: 20,
+    padding: 7
+  },
+
+  text: {
+    color: 'black',
+    fontSize: 18,
+    padding: 7,
+    borderWidth: 5,
+    margin: 5,
+    borderColor:'steelblue'
+  },
+  text2: {
+    fontSize:15,
+     color:'steelblue'
+
+  }
+});
+
+
+
 
 export default Reviews;

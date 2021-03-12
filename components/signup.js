@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, ToastAndroid, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Button, ToastAndroid, Text, TouchableOpacity, StyleSheet, View } from 'react-native';
 import { ScrollView, TextInput } from 'react-native-gesture-handler';
 
 class SignupScreen extends Component{
@@ -54,48 +54,51 @@ class SignupScreen extends Component{
 
 
   render(){
+
     const navigation = this.props.navigation;
+
     return (
+      <View style={styles.container}>
       <ScrollView>
-      <Text>Welcome! In order to make an account with us, we require you to enter the follwoing information.</Text>
-      <Text style={{fontSize:15, color:'steelblue'}}>First Name:</Text>
+      <Text style={styles.title}>Welcome! In order to make an account with us, we require you to enter the following information.</Text>
+      <Text style={styles.text2}>First Name:</Text>
 
         <TextInput
           placeholder="Please Enter Your First Name.."
           onChangeText={(first_name) => this.setState({first_name})}
           value={this.state.first_name}
-          style={{padding:10, borderWidth:5, margin:5, borderColor:'steelblue'}}
+          style={styles.text}
         />
 
 
 
-        <Text style={{fontSize:15, color:'steelblue'}}>Last Name:</Text>
+        <Text style={styles.text2}>Last Name:</Text>
         <TextInput
           placeholder="Please Enter Your Last Name.."
           onChangeText={(last_name) => this.setState({last_name})}
           value={this.state.last_name}
-          style={{padding:10, borderWidth:5, margin:5, borderColor:'steelblue'}}
+          style={styles.text}
         />
 
 
 
-        <Text style={{fontSize:15, color:'steelblue'}}>Email:</Text>
+        <Text style={styles.text2}>Email:</Text>
         <TextInput
           placeholder="Please Enter Your Email.."
           onChangeText={(email) => this.setState({email})}
           value={this.state.email}
-          style={{padding:10, borderWidth:5, margin:5, borderColor:'steelblue'}}
+          style={styles.text}
         />
 
 
 
-        <Text style={{fontSize:15, color:'steelblue'}}>Password:</Text>
+        <Text style={styles.text2}>Password:</Text>
         <TextInput
           placeholder="Please Enter Your Password.."
           onChangeText={(password) => this.setState({password})}
           value={this.state.password}
           secureTextEntry
-          style={{padding:10, borderWidth:5, margin:5, borderColor:'steelblue'}}
+          style={styles.text}
         />
 
         <TouchableOpacity
@@ -112,13 +115,46 @@ class SignupScreen extends Component{
 
 
 
+
+
+
+
+
       </ScrollView>
+      </View>
     )
   }
 }
 
 
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#751d6e'
+  },
+  title: {
+    color: 'black',
+    backgroundColor:'#3369d6',
+    fontSize: 20,
+    padding: 7
+  },
 
+  text: {
+    color: 'black',
+    fontSize: 18,
+    padding:10,
+    borderWidth:5,
+    margin:5,
+    borderColor:'steelblue'
+  },
+  text2: {
+    fontSize:15,
+     color:'steelblue'
+
+  }
+});
 
 
 

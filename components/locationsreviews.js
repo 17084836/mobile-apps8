@@ -118,12 +118,14 @@ getData = async () => {
 const navigation = this.props.navigation;
 
      return (
+
        <View
          style={{
            flex: 1,
            flexDirection: 'column',
            justifyContent: 'center',
            alignItems: 'center',
+           backgroundColor: '#751d6e'
          }}>
          <Text>Here Are The Location Reviews! Feel Free To Create A New Review For Any Of The Coffee Shops!</Text>
 
@@ -182,5 +184,43 @@ const navigation = this.props.navigation;
      );
    }
  }
+
+ const styles = StyleSheet.create({
+   container:{
+     flex: 1,
+ //    alignItems: 'center',
+   //  justifyContent: 'center',
+     backgroundColor: '#751d6e'
+   },
+   title: {
+     color: 'black',
+     backgroundColor:'#3369d6',
+     fontSize: 20,
+     padding: 7
+   },
+
+   text: {
+     color: 'black',
+     fontSize: 18,
+     padding: 7,
+     borderWidth: 5,
+     margin: 5,
+     borderColor:'steelblue'
+   },
+   text2: {
+     fontSize:15,
+      color:'steelblue'
+
+   }
+ });
+
+
+
+
+
+
+
+
+
 
  export default LocationsReviews;

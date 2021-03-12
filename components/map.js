@@ -64,25 +64,54 @@ class Map extends Component{
   render(){
     const navigation = this.props.navigation;
     return (
+      <View style={styles.container}>
       <View>
        <Button title="Get my coords" onPress={() => {this.findCoordinates()}} />
-       <Text>Location: {this.state.location}</Text>
+       <Text style={styles.title}>Location: {this.state.location}</Text>
 
        <Button
         title="Go Back"
         onPress={() => navigation.goBack()}
         />
        </View>
+       </View>
     );
   }
 
-
-
-
-
-
-
 }
+
+
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+//    alignItems: 'center',
+  //  justifyContent: 'center',
+    backgroundColor: '#751d6e'
+  },
+  title: {
+    color: 'black',
+    backgroundColor:'#3369d6',
+    fontSize: 20,
+    padding: 7
+  },
+
+  text: {
+    color: 'black',
+    fontSize: 18,
+    padding:10,
+    borderWidth:5,
+    margin:5,
+    borderColor:'steelblue'
+  },
+  text2: {
+    fontSize:15,
+     color:'steelblue'
+
+  }
+});
+
+
+
 
 
 

@@ -118,6 +118,7 @@ getData = async () => {
 const navigation = this.props.navigation;
 
      return (
+       <View style={styles.container}>
        <View
          style={{
            flex: 1,
@@ -125,9 +126,9 @@ const navigation = this.props.navigation;
            justifyContent: 'center',
            alignItems: 'center',
          }}>
-         <Text>User's Details:</Text>
-          <Text style={{ padding: 8 }}>NAME: {this.state.userData.first_name} {this.state.userData.last_name}</Text>
-           <Text style={{ padding: 8 }}>EMAIL: {this.state.userData.email}</Text>
+         <Text style={styles.title}>User's Details:</Text>
+          <Text style={styles.text}>NAME: {this.state.userData.first_name} {this.state.userData.last_name}</Text>
+           <Text style={styles.text}>EMAIL: {this.state.userData.email}</Text>
            <Button
             title="Go Back"
             onPress={() => navigation.goBack()}
@@ -140,8 +141,57 @@ const navigation = this.props.navigation;
 
 
        </View>
+       </View>
      );
    }
  }
+
+
+
+
+ const styles = StyleSheet.create({
+   container:{
+     flex: 1,
+ //    alignItems: 'center',
+   //  justifyContent: 'center',
+     backgroundColor: '#751d6e'
+   },
+   title: {
+     color: 'black',
+     backgroundColor:'#3369d6',
+     fontSize: 20,
+     padding: 7
+   },
+
+   text: {
+     color: 'black',
+     fontSize: 18,
+     padding: 7,
+     borderWidth: 5,
+     margin: 5,
+     borderColor:'steelblue'
+   },
+   text2: {
+     fontSize:15,
+      color:'steelblue'
+
+   }
+ });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  export default GetUserInfo;
