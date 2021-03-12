@@ -109,14 +109,8 @@ class Update extends Component {
           />
 
 
-          <View style={styles.buttonContainer}>
-             <Button
-              title=" Edit Photo"
-              icon={<Icon name="camera-account" size={30} color="white" />}
-              onPress={() => this.props.navigation.navigate('Edit Photo')}
-              buttonStyle={styles.button}
-              accessibilityLabel="Edit Profile Photo"
-            />
+      
+
 
 
             <Button
@@ -135,7 +129,7 @@ class Update extends Component {
 
           </View>
 
-        </View>
+
 
       );
     }

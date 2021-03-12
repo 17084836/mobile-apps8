@@ -13,7 +13,7 @@ import LoginScreen from './components/login';
 import Logout from './components/logout';
 
 
-import Map from './components/map';
+
 import Location from './components/location';
 import Update from './components/updateuser';
 
@@ -39,7 +39,7 @@ class App extends Component {
 <Drawer.Screen name="Login" component={LoginScreen} />
 <Drawer.Screen name="Logout" component={Logout} />
 
-<Drawer.Screen name="Map" component={Map} />
+
 <Drawer.Screen name="Update" component={Update} />
 <Drawer.Screen name="User Details" component={GetUserInfo} />
 <Drawer.Screen name="Locations Reviews" component={LocationsReviews} />

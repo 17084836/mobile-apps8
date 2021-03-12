@@ -84,6 +84,7 @@ class LoginScreen extends Component {
       onChangeText={(password) => this.setState ({password})}
       value={this.state.password}
       style={styles.text}
+      secureTextEntry
       />
       <Button
       title="Login"
