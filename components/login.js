@@ -4,21 +4,14 @@ import { ScrollView, TextInput, TouchableHighlight, Text } from 'react-native-ge
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
-
-
 class LoginScreen extends Component {
     constructor(props) {
         super(props);
-
-
 
         this.state = {
             email: "",
             password: ""
         }
-
-
-
 
     }
     LoggingIn = async() => {
@@ -80,33 +73,29 @@ class LoginScreen extends Component {
         return (
           <View style={styles.container}>
            <View>
-      <TextInput
-      placeholder="Enter Your Email..."
-      onChangeText={(email) => this.setState ({email})}
-      value={this.state.email}
-      style={styles.text}
-      />
-      <TextInput
-      placeholder="Enter Your Password..."
-      onChangeText={(password) => this.setState ({password})}
-      value={this.state.password}
-      style={styles.text}
-      secureTextEntry
-      />
-      <Button
-      title="Login"
-      onPress={() =>  this.LoggingIn()}
-      />
-
-      <Button
-       title="Go Back"
-       onPress={() => navigation.goBack()}
+            <TextInput
+             placeholder="Enter Your Email..."
+             onChangeText={(email) => this.setState ({email})}
+             value={this.state.email}
+             style={styles.text}
+           />
+          <TextInput
+           placeholder="Enter Your Password..."
+           onChangeText={(password) => this.setState ({password})}
+           value={this.state.password}
+           style={styles.text}
+           secureTextEntry
+         />
+        <Button
+         title="Login"
+         onPress={() =>  this.LoggingIn()}
+        />
+       <Button
+         title="Go Back"
+         onPress={() => navigation.goBack()}
        />
-
-
-
       </View>
-      </View>
+    </View>
         );
     }
 }
