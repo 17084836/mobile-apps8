@@ -8,9 +8,7 @@ class LocationsReviews extends Component  {
 
 
     this.state = {
-
       userData: [],
-
       locationData: [],
 
     };
@@ -67,7 +65,6 @@ PullingTheData = async () => {
         console.log(error);
         ToastAndroid.show(error, ToastAndroid.SHORT, ToastAndroid.CENTER);
       })
-
 
 
   }
@@ -204,6 +201,7 @@ const navigation = this.props.navigation;
 
 
 
+
            <Button
              onPress={() => this.GettingTheInfo()}
              title="Location Reviews"
@@ -227,23 +225,20 @@ const navigation = this.props.navigation;
                  <Button style={{ padding: 20 }}
                        title="Add Your Review"
                        onPress={() => this.props.navigation.navigate("Add Review", { location_id: item.location_id })}
-                     />
+                 />
 
-                     <Button style={{ padding: 20 }}
-                           title="Reviews"
-                           onPress={() => this.props.navigation.navigate("Reviews", { location_id: item.location_id })}
-                         />
-                         <Button style={{ padding: 20 }}
-                               title="Add To Favourite"
-                               onPress={() => this.FavouriteLocation(item.location_id)}
-                             />
-                             <Button style={{ padding: 20 }}
-                                   title="Remove From Favourite"
-                                   onPress={() => this.RemoveFromFavourites(item.location_id)}
-                                 />
-
-
-
+                 <Button style={{ padding: 20 }}
+                     title="Reviews"
+                     onPress={() => this.props.navigation.navigate("Reviews", { location_id: item.location_id })}
+                 />
+                 <Button style={{ padding: 20 }}
+                     title="Add To Favourite"
+                     onPress={() => this.FavouriteLocation(item.location_id)}
+                 />
+                 <Button style={{ padding: 20 }}
+                    title="Remove From Favourite"
+                    onPress={() => this.RemoveFromFavourites(item.location_id)}
+                 />
 
 
                </View>
@@ -256,10 +251,6 @@ const navigation = this.props.navigation;
             title="Go Back"
             onPress={() => navigation.goBack()}
             />
-
-
-
-
 
 
        </View>

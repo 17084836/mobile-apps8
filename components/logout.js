@@ -76,7 +76,7 @@ import React, { Component } from 'react';
           <Button
            title="Log Out"
            onPress={() => this.LoggingOut()}
-        //   onPress={() => this.removeItem()}
+        
            />
 
            <Button
